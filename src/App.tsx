@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import {Switch} from './components/designSystems/SwitchComponent'
+import './App.css'
 
 function App() {
+  const [state, setState] = useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch
+        ariaLabel="Switch"
+        isSwitchedOn={state}
+        onClick={() => setState(!state)}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
