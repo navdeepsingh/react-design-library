@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from './Button';
+import { Button } from '../designSystems/ButtonComponent';
 import './header.css';
 
 export interface HeaderProps {

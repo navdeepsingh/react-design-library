@@ -1,6 +1,23 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
 
+type ButtonProps = {
+  on: boolean
+}
+
+export interface SwitchProps {
+  ariaLabel?: string
+  isSwitchedOn: boolean
+  onClick: (event: React.MouseEvent<HTMLElement>) => void
+}
+
+/**
+ * Define default props here
+ */
+const defaultProps = {
+  ariaLabel: "Switch"
+}
+
 const ToggleInput = styled.input`
   /* visually hidden but still accessible */
   border: 0;
@@ -19,10 +36,6 @@ const ToggleInput = styled.input`
       inset 0px 0px 0px 3px #9c9c9c;
   }
 `
-
-type ButtonProps = {
-  on: boolean
-}
 
 const ToggleButtonStyles = css<ButtonProps>`
   box-sizing: initial;
@@ -63,26 +76,30 @@ const StyledToggleButton = styled('span')`
   ${ToggleButtonStyles}
 `
 
-export interface SwitchProps {
-  ariaLabel: string
-  isSwitchedOn: boolean
-  onClick: () => void
-}
+/**
+ * To suppress the warning of adding readonly to input checkbox field
+ */
+const noop = () => {}
 
+/**
+ * Primary UI component for user interaction
+ */
 export const Switch: React.FC<SwitchProps> = ({
-  ariaLabel,
+  ariaLabel = defaultProps.ariaLabel,
   isSwitchedOn,
   onClick,
+  ...props
 }) => {
   return (
     <label aria-label={ariaLabel}>
       <ToggleInput
         type="checkbox"
         checked={isSwitchedOn}
+        onChange={noop}
         onClick={onClick}
-        data-testid="toggle-input"
+        data-testid="toggle-input"        
       />
-      <StyledToggleButton on={isSwitchedOn} />
+      <StyledToggleButton on={isSwitchedOn} {...props} />
     </label>
   )
 }

@@ -13,7 +13,6 @@ const Template: Story<SwitchProps> = (args) => <Switch {...args} />;
 export const On = Template.bind({});
 On.args = {
   isSwitchedOn: true,
-  onClick: () => !isSwitchedOn
 };
 
 export const Off = Template.bind({});
