@@ -73,12 +73,17 @@ function App() {
         size="small"
         primary={true}
         onClick={openModal}
+        data-testid="open-modal"
       />
 
       <Modal isOpen={showDialog} onDismiss={closeModal}>
         <p>Hello there. I am a dialog</p>
         <Switch isSwitchedOn={state2} onClick={handleClick2} />
-        <button className="close-button" onClick={closeModal}>
+        <button
+          className="close-button"
+          onClick={closeModal}
+          data-testid="close-modal"
+        >
           Close
           <span aria-hidden>×</span>
         </button>

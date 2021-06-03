@@ -61,8 +61,8 @@ export const Modal: React.FC<ModalProps> = ({
   children,
 }) => {
   return (
-    <ModalWrapper isOpen={isOpen}>
-      <div role="dialog" aria-modal={isOpen}>
+    <ModalWrapper isOpen={isOpen} >
+      <div role="dialog" aria-modal={isOpen} data-testid="modal">
         <div>{children}</div>
       </div>
       <ModalOverlay isOpen={isOpen} />
