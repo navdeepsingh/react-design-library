@@ -2,8 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 export interface ModalProps {
+  /**
+   * Is the modal opens or not
+   */
   isOpen: boolean
-  onDismiss: (event: React.MouseEvent<HTMLButtonElement>) => void
+  /**
+   * Modal contents
+   */
   children: React.ReactNode
 }
 
@@ -55,13 +60,9 @@ const ModalOverlay = styled.div<Partial<ModalProps>>`
 /**
  * Primary UI component for user interaction
  */
-export const Modal: React.FC<ModalProps> = ({
-  isOpen = false,
-  onDismiss,
-  children,
-}) => {
+export const Modal: React.FC<ModalProps> = ({isOpen = false, children}) => {
   return (
-    <ModalWrapper isOpen={isOpen} >
+    <ModalWrapper isOpen={isOpen}>
       <div role="dialog" aria-modal={isOpen} data-testid="modal">
         <div>{children}</div>
       </div>
