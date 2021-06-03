@@ -37,7 +37,9 @@
      */
     "packageManager": "teambit.dependencies/pnpm",
     "policy": {
-      "dependencies": {},
+      "dependencies": {
+        "@testing-library/dom": "7.31.2"
+      },
       "peerDependencies": {
         "@testing-library/react": "11.2.7",
         "react": "17.0.2",

@@ -8,14 +8,14 @@
         "rootDir": "bit-components/button"
     },
     "modal": {
-        "scope": "",
-        "version": "",
+        "scope": "navdeepsingh.bit-components",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "bit-components/modal"
     },
     "switch": {
-        "scope": "",
-        "version": "",
+        "scope": "navdeepsingh.bit-components",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "bit-components/switch"
     },

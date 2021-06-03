@@ -7,9 +7,9 @@ importers:
       '@storybook/node-logger': registry.npmjs.org/@storybook/node-logger/6.2.9
       '@storybook/preset-create-react-app': registry.npmjs.org/@storybook/preset-create-react-app/3.1.7_130e0615d4e387d7e32f650c220a775e
       '@storybook/react': registry.npmjs.org/@storybook/react/6.2.9_ff96a7114bf72d5bcdd153f4d6844cda
+      '@testing-library/dom': registry.npmjs.org/@testing-library/dom/7.31.2
       '@testing-library/jest-dom': registry.npmjs.org/@testing-library/jest-dom/5.12.0
       '@testing-library/react': registry.npmjs.org/@testing-library/react/11.2.7_react-dom@17.0.2+react@17.0.2
-      '@testing-library/user-event': registry.npmjs.org/@testing-library/user-event/12.8.3
       '@types/node': registry.npmjs.org/@types/node/12.20.14
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.6
       react: registry.npmjs.org/react/17.0.2
@@ -20,6 +20,7 @@ importers:
       typescript: registry.npmjs.org/typescript/4.3.2
       web-vitals: registry.npmjs.org/web-vitals/1.1.2
     devDependencies:
+      '@testing-library/user-event': registry.npmjs.org/@testing-library/user-event/12.8.3_@testing-library+dom@7.31.2
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/react': registry.npmjs.org/@types/react/17.0.9
       '@types/styled-components': registry.npmjs.org/@types/styled-components/5.1.9
@@ -30,22 +31,27 @@ importers:
       '@storybook/node-logger': ^6.2.9
       '@storybook/preset-create-react-app': ^3.1.7
       '@storybook/react': ^6.2.9
+      '@testing-library/dom': 7.31.2
       '@testing-library/jest-dom': ^5.12.0
-      '@testing-library/react': 11.2.7
+      '@testing-library/react': ^11.2.7
       '@testing-library/user-event': ^12.8.3
       '@types/jest': 26.0.20
       '@types/node': ^12.20.14
       '@types/react': ^17.0.9
       '@types/react-dom': ^17.0.6
       '@types/styled-components': ^5.1.9
-      react: 17.0.2
+      react: ^17.0.2
       react-dom: ^17.0.2
       react-is: 17.0.2
       react-scripts: 4.0.3
-      styled-components: 5.3.0
+      styled-components: ^5.3.0
       typescript: ^4.3.2
       web-vitals: ^1.1.2
   bit-components/button:
+    specifiers: {}
+  bit-components/modal:
+    specifiers: {}
+  bit-components/switch:
     specifiers: {}
 lockfileVersion: 5.2
 packages:
@@ -3515,7 +3521,6 @@ packages:
   registry.npmjs.org/@babel/runtime/7.14.0:
     dependencies:
       regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.13.7
-    dev: false
     name: '@babel/runtime'
     resolution:
       integrity: sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -5770,14 +5775,14 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@svgr/webpack/-/webpack-5.5.0.tgz
     version: 5.5.0
-  registry.npmjs.org/@testing-library/dom/7.31.0:
+  registry.npmjs.org/@testing-library/dom/7.31.2:
     dependencies:
       '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.12.13
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.14.0
       '@types/aria-query': registry.npmjs.org/@types/aria-query/4.2.1
       aria-query: registry.npmjs.org/aria-query/4.2.2
       chalk: registry.npmjs.org/chalk/4.1.1
-      dom-accessibility-api: registry.npmjs.org/dom-accessibility-api/0.5.5
+      dom-accessibility-api: registry.npmjs.org/dom-accessibility-api/0.5.6
       lz-string: registry.npmjs.org/lz-string/1.4.4
       pretty-format: registry.npmjs.org/pretty-format/26.6.2
     dev: false
@@ -5785,10 +5790,10 @@ packages:
       node: '>=10'
     name: '@testing-library/dom'
     resolution:
-      integrity: sha512-0X7ACg4YvTRDFMIuTOEj6B4NpN7i3F/4j5igOcTI5NC5J+N4TribNdErCHOZF1LBWhhcyfwxelVwvoYNMUXTOA==
+      integrity: sha512-3UqjCpey6HiTZT92vODYLPxTBWlM8ZOOjr3LX5F37/VRipW2M1kX6I/Cm4VXzteZqfGfagg8yXywpcOgQBlNsQ==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/@testing-library/dom/-/dom-7.31.0.tgz
-    version: 7.31.0
+      tarball: https://registry.npmjs.org/@testing-library/dom/-/dom-7.31.2.tgz
+    version: 7.31.2
   registry.npmjs.org/@testing-library/jest-dom/5.12.0:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.14.0
@@ -5813,7 +5818,7 @@ packages:
   registry.npmjs.org/@testing-library/react/11.2.7_react-dom@17.0.2+react@17.0.2:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.14.0
-      '@testing-library/dom': registry.npmjs.org/@testing-library/dom/7.31.0
+      '@testing-library/dom': registry.npmjs.org/@testing-library/dom/7.31.2
       react: registry.npmjs.org/react/17.0.2
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
     dev: false
@@ -5829,13 +5834,15 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@testing-library/react/-/react-11.2.7.tgz
     version: 11.2.7
-  registry.npmjs.org/@testing-library/user-event/12.8.3:
+  registry.npmjs.org/@testing-library/user-event/12.8.3_@testing-library+dom@7.31.2:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.14.0
-    dev: false
+      '@testing-library/dom': registry.npmjs.org/@testing-library/dom/7.31.2
+    dev: true
     engines:
       node: '>=10'
       npm: '>=6'
+    id: registry.npmjs.org/@testing-library/user-event/12.8.3
     name: '@testing-library/user-event'
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
@@ -10664,14 +10671,14 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/doctrine/-/doctrine-3.0.0.tgz
     version: 3.0.0
-  registry.npmjs.org/dom-accessibility-api/0.5.5:
+  registry.npmjs.org/dom-accessibility-api/0.5.6:
     dev: false
     name: dom-accessibility-api
     resolution:
-      integrity: sha512-8qdiSHWFg/rzd/oDByhKtBCR+1QtpNPcHDr94m3K+SLkFaPEhdCPA/Rm9hOPN9WUK9mEfNXH1zaM6F5e0yhw/A==
+      integrity: sha512-DplGLZd8L1lN64jlT27N9TVSESFR5STaEJvX+thCby7fuCHonfPpAlodYc3vuUYbDuDec5w8AMP7oCM5TWFsqw==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.5.tgz
-    version: 0.5.5
+      tarball: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.6.tgz
+    version: 0.5.6
   registry.npmjs.org/dom-converter/0.2.0:
     dependencies:
       utila: registry.npmjs.org/utila/0.4.0
@@ -20430,7 +20437,6 @@ packages:
       tarball: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz
     version: 0.11.1
   registry.npmjs.org/regenerator-runtime/0.13.7:
-    dev: false
     name: regenerator-runtime
     resolution:
       integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
