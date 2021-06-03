@@ -1,9 +1,5 @@
 import React from 'react'
-import styled, {css} from 'styled-components'
-
-type ButtonProps = {
-  on: boolean
-}
+import styled from 'styled-components'
 
 export interface SwitchProps {
   ariaLabel?: string
@@ -15,7 +11,7 @@ export interface SwitchProps {
  * Define default props here
  */
 const defaultProps = {
-  ariaLabel: "Switch"
+  ariaLabel: 'Switch',
 }
 
 const ToggleInput = styled.input`
@@ -37,7 +33,7 @@ const ToggleInput = styled.input`
   }
 `
 
-const ToggleButtonStyles = css<ButtonProps>`
+const StyledToggleButton = styled('span')<Partial<SwitchProps>>`
   box-sizing: initial;
   display: inline-block;
   outline: 0;
@@ -46,14 +42,14 @@ const ToggleButtonStyles = css<ButtonProps>`
   position: relative;
   cursor: pointer;
   user-select: none;
-  background: ${props => (props.on ? '#86d993' : '#fbfbfb')};
+  background: ${props => (props.isSwitchedOn ? '#86d993' : '#fbfbfb')};
   border-radius: 4em;
   padding: 4px;
   transition: all 0.4s ease;
   border: 2px solid #e8eae9;
 
   &::after {
-    left: ${props => (props.on ? '50%' : 0)};
+    left: ${props => (props.isSwitchedOn ? '50%' : 0)};
     position: relative;
     display: block;
     content: '';
@@ -70,10 +66,6 @@ const ToggleButtonStyles = css<ButtonProps>`
     opacity: 0.7;
     cursor: auto;
   }
-`
-
-const StyledToggleButton = styled('span')`
-  ${ToggleButtonStyles}
 `
 
 /**
@@ -97,9 +89,9 @@ export const Switch: React.FC<SwitchProps> = ({
         checked={isSwitchedOn}
         onChange={noop}
         onClick={onClick}
-        data-testid="toggle-input"        
+        data-testid="toggle-input"
       />
-      <StyledToggleButton on={isSwitchedOn} {...props} />
+      <StyledToggleButton isSwitchedOn={isSwitchedOn} {...props} />
     </label>
   )
 }

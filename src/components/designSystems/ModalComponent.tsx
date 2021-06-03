@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 
 export interface ModalProps {
-  isOpen: boolean,
-  onDismiss: (event: React.MouseEvent<HTMLButtonElement>) => void,
+  isOpen: boolean
+  onDismiss: (event: React.MouseEvent<HTMLButtonElement>) => void
   children: React.ReactNode
 }
 
 const ModalWrapper = styled.div<Partial<ModalProps>>`
-  [role=dialog] {
+  [role='dialog'] {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 100;
-    display: ${props => props.isOpen ? 'block' : 'none'};;
+    display: ${props => (props.isOpen ? 'block' : 'none')};
     overflow: hidden;
- 
+
     > div {
       width: 50vw;
       margin: 10vh auto;
@@ -25,8 +25,8 @@ const ModalWrapper = styled.div<Partial<ModalProps>>`
       padding: 2rem;
       outline: none;
       position: relative;
-      text-align: left;      
-      z-index: 101;      
+      text-align: left;
+      z-index: 101;
     }
   }
 
@@ -42,16 +42,14 @@ const ModalWrapper = styled.div<Partial<ModalProps>>`
 `
 
 const ModalOverlay = styled.div<Partial<ModalProps>>`
-  background: rgba(0,0,0,.33);
+  background: rgba(0, 0, 0, 0.33);
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: auto;
-  display: ${props =>  props.isOpen ? 'block' : 'none'};
-`
-const ModalStyled = styled.div<Partial<ModalProps>>`
+  display: ${props => (props.isOpen ? 'block' : 'none')};
 `
 
 /**
@@ -60,17 +58,14 @@ const ModalStyled = styled.div<Partial<ModalProps>>`
 export const Modal: React.FC<ModalProps> = ({
   isOpen = false,
   onDismiss,
-  children
+  children,
 }) => {
-
   return (
-    <ModalWrapper isOpen={isOpen}>      
-      <ModalStyled role="dialog" aria-modal={isOpen}>
-        <div>
-          {children}
-        </div>
-      </ModalStyled>
-      <ModalOverlay isOpen={isOpen} />      
+    <ModalWrapper isOpen={isOpen}>
+      <div role="dialog" aria-modal={isOpen}>
+        <div>{children}</div>
+      </div>
+      <ModalOverlay isOpen={isOpen} />
     </ModalWrapper>
-  );
-};
+  )
+}
